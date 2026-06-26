@@ -24,7 +24,12 @@ def list_tasks():
     keyword = request.args.get("q")
 
     tasks = store.list_all()
-    tasks = filter_tasks(tasks, status=status, priority=priority, keyword=keyword)
+    tasks = filter_tasks(
+        tasks,
+        status=status,
+        priority=priority,
+        keyword=keyword,
+    )
     return jsonify(tasks=tasks, total=len(tasks))
 
 

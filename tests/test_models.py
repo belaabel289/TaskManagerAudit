@@ -72,7 +72,8 @@ def test_taskstore_mark_complete():
 
 
 def test_filter_tasks_by_status_and_keyword():
-    """filter_tasks harus menggabungkan filter status + keyword dengan benar."""
+    """filter_tasks harus menggabungkan filter status +
+    keyword dengan benar."""
     tasks = [
         {
             "id": 1,
