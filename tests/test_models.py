@@ -3,6 +3,7 @@
 Test ini tidak menyentuh HTTP/Flask sama sekali — murni menguji
 fungsi dan class secara terisolasi (unit testing).
 """
+
 import pytest
 
 from models import (
@@ -74,16 +75,25 @@ def test_filter_tasks_by_status_and_keyword():
     """filter_tasks harus menggabungkan filter status + keyword dengan benar."""
     tasks = [
         {
-            "id": 1, "title": "Belajar Flask", "description": "",
-            "status": "todo", "priority": "high",
+            "id": 1,
+            "title": "Belajar Flask",
+            "description": "",
+            "status": "todo",
+            "priority": "high",
         },
         {
-            "id": 2, "title": "Belajar Locust", "description": "",
-            "status": "done", "priority": "low",
+            "id": 2,
+            "title": "Belajar Locust",
+            "description": "",
+            "status": "done",
+            "priority": "low",
         },
         {
-            "id": 3, "title": "Meeting", "description": "bahas Flask",
-            "status": "todo", "priority": "medium",
+            "id": 3,
+            "title": "Meeting",
+            "description": "bahas Flask",
+            "status": "todo",
+            "priority": "medium",
         },
     ]
     result = filter_tasks(tasks, status="todo", keyword="flask")

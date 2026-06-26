@@ -4,6 +4,7 @@ Mensimulasikan pengguna yang membuat, membaca, mengupdate, dan
 menyelesaikan task -- merepresentasikan pola pemakaian nyata,
 bukan cuma satu endpoint statis.
 """
+
 import random
 
 from locust import HttpUser, task, between

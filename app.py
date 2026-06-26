@@ -8,6 +8,7 @@ Endpoint:
     DELETE /tasks/<id>        -> hapus task
     PATCH  /tasks/<id>/complete -> tandai task selesai
 """
+
 from flask import Flask, jsonify, request
 
 from models import TaskStore, TaskValidationError, filter_tasks
@@ -23,9 +24,7 @@ def list_tasks():
     keyword = request.args.get("q")
 
     tasks = store.list_all()
-    tasks = filter_tasks(
-        tasks, status=status, priority=priority, keyword=keyword
-    )
+    tasks = filter_tasks(tasks, status=status, priority=priority, keyword=keyword)
     return jsonify(tasks=tasks, total=len(tasks))
 
 

@@ -4,6 +4,7 @@ Test ini memanggil endpoint HTTP secara end-to-end menggunakan Flask
 test client (request -> routing -> business logic -> response),
 berbeda dari unit test yang hanya menguji fungsi murni.
 """
+
 import pytest
 
 import app as app_module
@@ -52,18 +53,14 @@ def test_complete_task_flow(client):
 
 def test_update_task_priority(client):
     created = client.post("/tasks", json={"title": "Integrasi E"}).get_json()
-    response = client.put(
-        f"/tasks/{created['id']}", json={"priority": "high"}
-    )
+    response = client.put(f"/tasks/{created['id']}", json={"priority": "high"})
     assert response.status_code == 200
     assert response.get_json()["priority"] == "high"
 
 
 def test_update_task_invalid_priority_returns_400(client):
     created = client.post("/tasks", json={"title": "Integrasi F"}).get_json()
-    response = client.put(
-        f"/tasks/{created['id']}", json={"priority": "urgent"}
-    )
+    response = client.put(f"/tasks/{created['id']}", json={"priority": "urgent"})
     assert response.status_code == 400
 
 
