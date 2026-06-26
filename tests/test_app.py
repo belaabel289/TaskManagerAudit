@@ -43,7 +43,10 @@ def test_get_nonexistent_task_returns_404(client):
 
 
 def test_complete_task_flow(client):
-    """Skenario end-to-end: buat task -> tandai selesai -> verifikasi status."""
+    """Skenario end-to-end.
+
+    Buat task, tandai selesai, lalu verifikasi status.
+    """
     created = client.post("/tasks", json={"title": "Integrasi C"}).get_json()
     response = client.patch(f"/tasks/{created['id']}/complete")
     assert response.status_code == 200
